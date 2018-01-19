@@ -1,0 +1,28 @@
+<% 
+
+
+hamburgers = hamburgers.to_i
+cheeseburgers = cheeseburgers.to_i
+hotdogs = hotdogs.to_i
+chilidogs = chilidogs.to_i
+
+tamount = total_cost(hamburgers,cheeseburgers,hotdogs,chilidogs)
+
+tax= 0.06 * tamount
+
+total_with_tax = tamount + tax
+
+%>
+
+You ordered: <br>
+
+<%= hamburgers %> hamburgers<br>
+<%= cheeseburgers %> cheeseburgers <br>
+<%= hotdogs %> hotdogs<br>
+<%= chilidogs %> chilidogs <br><br>
+
+item cost = <%= tamount %> <br>
+
+plus 6% tax = <%= tax %>  <br>
+
+total     = <%= total_with_tax %> <br>
