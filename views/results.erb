@@ -15,7 +15,23 @@ total_with_tax = tamount + tax
 %>
 
 You ordered: <br>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
 
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 <table>
   <tr>
     <th>Item</th>
@@ -24,8 +40,34 @@ You ordered: <br>
   </tr>
   <tr>
     <td>Hamburgers</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td><%= hamburgers %></td>
+    <td><%= '%.2f' %total_cost(hamburgers,0,0,0) %></td>
+  </tr>
+    <tr>
+    <td>Cheeseburgers</td>
+    <td><%= cheeseburgers %></td>
+    <td><%= '%.2f' %total_cost(0,cheeseburgers,0,0) %></td>
+  </tr>
+    <tr>
+    <td>Hotdogs</td>
+    <td><%= hotdogs %></td>
+    <td><%= '%.2f' %total_cost(0,0,hotdogs,0) %></td>
+  </tr>
+    <tr>
+    <td>Chilidogs</td>
+    <td><%= chilidogs %></td>
+    <td><%= '%.2f' %total_cost(0,0,0,chilidogs) %></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>Subtotal</td>
+    <td><%= '%.2f' %total_cost(hamburgers,cheeseburgers,hotdogs,chilidogs) %></td>
+  </tr>
+
+      <tr>
+    <td></td>
+    <td>6 % Tax</td>
+    <td><%= '%.2f' %tax %></td>
   </tr>
 
 </table>
