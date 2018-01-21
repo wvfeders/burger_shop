@@ -13,7 +13,7 @@ class TestMath < Minitest::Test  #The word Math is the name of your project
 		assert_equal(2.25,total_cost(0,0,0,1))
 		assert_equal(5.58,total_cost(1,1,0,0))
 		assert_equal(7.47,total_cost(1,1,1,0))
-		assert_equal(9.72,total_cost(1,1,1,1))
+		assert_equal(9.72,total_cost(1,1,1,1).round(2))
 	
 	end	
 end

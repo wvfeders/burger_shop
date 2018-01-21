@@ -16,13 +16,66 @@ total_with_tax = tamount + tax
 
 You ordered: <br>
 
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Number Ordered</th>
+    <th>Cost</th>
+  </tr>
+  <tr>
+    <td>Hamburgers</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+
+</table>
+
+
 <%= hamburgers %> hamburgers<br>
 <%= cheeseburgers %> cheeseburgers <br>
 <%= hotdogs %> hotdogs<br>
 <%= chilidogs %> chilidogs <br><br>
 
-item cost = <%= tamount %> <br>
+item cost = $<%= '%.2f' %tamount %> <br>
 
-plus 6% tax = <%= tax %>  <br>
+plus 6% tax = $<%= '%.2f' %tax %>  <br>
 
-total     = <%= total_with_tax %> <br>
+<% total     = '%.2f' %total_with_tax %> <br>
+total     = $<%= total %>
+<html>
+<body>
+
+
+
+<p>Enter the amount of money received from the customer</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+$
+<script>
+function myFunction() {
+    var x, change;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+
+   
+ 
+ change =  x - <%= total %>
+
+document.getElementById("demo").innerHTML = change.toFixed(2);
+}
+
+
+</script>
+
+<%  %>
+
+
+
+</body>
+</html> 
