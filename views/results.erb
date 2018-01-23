@@ -13,23 +13,30 @@ tax= 0.06 * tamount
 total_with_tax = tamount + tax
 
 %>
-
-You ordered: <br>
+<br>
+<h1>The Customer Ordered:</h1> <br>
 <style>
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 80%;
+    width: 60%;
+        margin-left:20%; 
+    margin-right:20%
+    color: black;
 }
 
 td, th {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
+    color: black;
 }
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+table, th, td {
+    border: 1px solid black;
 }
 </style>
 <table>
@@ -41,37 +48,62 @@ tr:nth-child(even) {
   <tr>
     <td>Hamburgers</td>
     <td><%= hamburgers %></td>
-    <td><%= '%.2f' %total_cost(hamburgers,0,0,0) %></td>
+    <td>$<%= '%.2f' %total_cost(hamburgers,0,0,0) %></td>
   </tr>
     <tr>
     <td>Cheeseburgers</td>
     <td><%= cheeseburgers %></td>
-    <td><%= '%.2f' %total_cost(0,cheeseburgers,0,0) %></td>
+    <td>$<%= '%.2f' %total_cost(0,cheeseburgers,0,0) %></td>
   </tr>
     <tr>
     <td>Hotdogs</td>
     <td><%= hotdogs %></td>
-    <td><%= '%.2f' %total_cost(0,0,hotdogs,0) %></td>
+    <td>$<%= '%.2f' %total_cost(0,0,hotdogs,0) %></td>
   </tr>
     <tr>
     <td>Chilidogs</td>
     <td><%= chilidogs %></td>
-    <td><%= '%.2f' %total_cost(0,0,0,chilidogs) %></td>
+    <td>$<%= '%.2f' %total_cost(0,0,0,chilidogs) %></td>
   </tr>
     <tr>
     <td></td>
     <td>Subtotal</td>
-    <td><%= '%.2f' %total_cost(hamburgers,cheeseburgers,hotdogs,chilidogs) %></td>
+    <td>$<%= '%.2f' %tamount %></td>
   </tr>
 
       <tr>
     <td></td>
     <td>6 % Tax</td>
-    <td><%= '%.2f' %tax %></td>
+    <td>$<%= '%.2f' %tax %></td>
   </tr>
+        <tr>
+    <td></td>
+    <td><h2>Total with Tax</h2></td>
+    <td><h2>$<%= '%.2f' %total_with_tax %></h2></td>
+  </tr>
+          <tr>
+    <td></td>
+    <td><a href="http://localhost:4567/"><h3>Click here to change the order</h3></a></td>
+    <td></td>
+  </tr>
+        <tr>
+    <td></td>
+    <td> <h2>Amount tendered</h2></td>
+    <td><form method="post" action="/payment">
+<h2> $<input type="float" name="payment_amount" value= 0.00> </h2>
+  <input type="hidden" name="tamount" value= <%= tamount %>> 
+  <input type="hidden" name="tax" value= <%= tax %>> 
+  <input type="hidden" name="total_with_tax" value= <%= total_with_tax %>> 
+  <input type="hidden" name="hamburgers" value= <%= hamburgers %>> 
+  <input type="hidden" name="cheeseburgers" value= <%= cheeseburgers %>> 
+  <input type="hidden" name="hotdogs" value= <%= hotdogs %>>  
+  <input type="hidden" name="chilidogs" value= <%= chilidogs %>></td>
+   <td>  <input type="submit" value="Submit"></td>
 
+ </form></td>
+  </tr>
 </table>
-
+<!-- 
 
 <%= hamburgers %> hamburgers<br>
 <%= cheeseburgers %> cheeseburgers <br>
@@ -83,19 +115,21 @@ item cost = $<%= '%.2f' %tamount %> <br>
 plus 6% tax = $<%= '%.2f' %tax %>  <br>
 
 <% total     = '%.2f' %total_with_tax %> <br>
-total     = $<%= total %>
+total     = $<%= total %> -->
 <html>
 <body>
 
-
+<!-- 
 
 <p>Enter the amount of money received from the customer</p>
 
 <input id="numb">
 
-<button type="button" onclick="myFunction()">Submit</button>
+<button type="button" onclick="myFunction()">Click to Submit</button>
 
+<p id="demo1"></p>
 <p id="demo"></p>
+
 $
 <script>
 function myFunction() {
@@ -108,7 +142,7 @@ function myFunction() {
    
  
  change =  x - <%= total %>
-
+document.getElementById("demo1").innerHTML = "Change to the Customer = $" ;
 document.getElementById("demo").innerHTML = change.toFixed(2);
 }
 
@@ -117,7 +151,7 @@ document.getElementById("demo").innerHTML = change.toFixed(2);
 
 <%  %>
 
-
+ -->
 
 </body>
 </html> 

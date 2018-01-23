@@ -1,0 +1,93 @@
+<br>
+
+<%
+
+hamburgers = hamburgers.to_i
+cheeseburgers = cheeseburgers.to_i
+hotdogs = hotdogs.to_i
+chilidogs = chilidogs.to_i
+payment_amount = payment_amount.to_f
+total_with_tax = total_with_tax.to_f
+
+change = payment_amount - total_with_tax
+%>
+
+<h1>The Customer Ordered:</h1> <br>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+        margin-left:20%; 
+    margin-right:20%
+    color: black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Number Ordered</th>
+    <th>Cost</th>
+  </tr>
+  <tr>
+    <td>Hamburgers</td>
+    <td><%= hamburgers %></td>
+    <td>$<%= '%.2f' %total_cost(hamburgers,0,0,0) %></td>
+  </tr>
+    <tr>
+    <td>Cheeseburgers</td>
+    <td><%= cheeseburgers %></td>
+    <td>$<%= '%.2f' %total_cost(0,cheeseburgers,0,0) %></td>
+  </tr>
+    <tr>
+    <td>Hotdogs</td>
+    <td><%= hotdogs %></td>
+    <td>$<%= '%.2f' %total_cost(0,0,hotdogs,0) %></td>
+  </tr>
+    <tr>
+    <td>Chilidogs</td>
+    <td><%= chilidogs %></td>
+    <td>$<%= '%.2f' %total_cost(0,0,0,chilidogs) %></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>Subtotal</td>
+    <td>$<%= '%.2f' %tamount %></td>
+  </tr>
+
+      <tr>
+    <td></td>
+    <td>6 % Tax</td>
+    <td>$<%= '%.2f' %tax %></td>
+  </tr>
+        <tr>
+    <td></td>
+    <td>Total with Tax</td>
+    <td>$<%= '%.2f' %total_with_tax %></td>
+  </tr>
+
+        <tr>
+    <td></td>
+    <td> Amount tendered</td>
+   <td> $<%= '%.2f' %payment_amount %></td> 
+  </tr>
+          <tr>
+    <td></td>
+    <td> <h2>Change Returned to Customer</h2></td>
+   <td> <h2>$<%= '%.2f' %change %></h2></td> 
+  </tr>
+</table>
