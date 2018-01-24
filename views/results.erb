@@ -83,7 +83,8 @@ table, th, td {
   </tr>
           <tr>
     <td></td>
-    <td><a href="http://localhost:4567/"><h3>Click here to change the order</h3></a></td>
+    <td><button onclick="goBack()"><h3>Click Here to Change Order</button></h3></a></td>
+  
     <td></td>
   </tr>
         <tr>
@@ -103,55 +104,18 @@ table, th, td {
  </form></td>
   </tr>
 </table>
-<!-- 
 
-<%= hamburgers %> hamburgers<br>
-<%= cheeseburgers %> cheeseburgers <br>
-<%= hotdogs %> hotdogs<br>
-<%= chilidogs %> chilidogs <br><br>
-
-item cost = $<%= '%.2f' %tamount %> <br>
-
-plus 6% tax = $<%= '%.2f' %tax %>  <br>
-
-<% total     = '%.2f' %total_with_tax %> <br>
-total     = $<%= total %> -->
 <html>
 <body>
 
-<!-- 
 
-<p>Enter the amount of money received from the customer</p>
 
-<input id="numb">
-
-<button type="button" onclick="myFunction()">Click to Submit</button>
-
-<p id="demo1"></p>
-<p id="demo"></p>
-
-$
 <script>
-function myFunction() {
-    var x, change;
-
-    // Get the value of the input field with id="numb"
-    x = document.getElementById("numb").value;
-
-
-   
- 
- change =  x - <%= total %>
-document.getElementById("demo1").innerHTML = "Change to the Customer = $" ;
-document.getElementById("demo").innerHTML = change.toFixed(2);
+function goBack() {
+    window.history.back();
 }
-
-
 </script>
 
-<%  %>
-
- -->
 
 </body>
 </html> 
